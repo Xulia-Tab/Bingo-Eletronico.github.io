@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bingo Eletrônico</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topo">
+      <div class="logo-box" aria-label="Espaço em branco"></div>
+
+      <div class="titulo-area">
+        <h1>Bingo Eletrônico</h1>
+        <p class="ajuda">Aperte <strong>ESPAÇO</strong> ou clique em <strong>SORTEAR</strong>. O sorteio não repete números.</p>
+      </div>
+
+      <aside class="card intervalo-card" aria-live="polite">
+        <span>BINGO</span>
+        <strong>1 a 75</strong>
+      </aside>
+    </header>
+
+    <main class="layout">
+      <section class="coluna coluna-esquerda" aria-label="Área principal do sorteio">
+        <article class="card numero-card" aria-live="polite">
+          <h2>Número sorteado</h2>
+          <div id="numeroSorteado" class="numero-sorteado">--</div>
+          <p id="contadorTexto" class="contador">Sorteados: 0 de 75</p>
+          <p id="instrucaoTexto" class="instrucao">Aguardando sorteio...</p>
+        </article>
+
+        <article class="card globo-card">
+          <h2>Globo do Bingo</h2>
+          <canvas id="canvasGlobo" width="420" height="310" aria-label="Globo animado do bingo"></canvas>
+        </article>
+
+        <nav class="acoes" aria-label="Ações do sorteador">
+          <button id="sortearBtn" type="button" class="btn btn-roxo btn-grande">Sortear</button>
+          <button id="desfazerBtn" type="button" class="btn btn-laranja">Desfazer</button>
+          <button id="reiniciarBtn" type="button" class="btn btn-vermelho">Reiniciar</button>
+          <button id="salvarBtn" type="button" class="btn btn-azul">Salvar</button>
+          <button id="telaCheiaBtn" type="button" class="btn btn-cinza">Tela cheia</button>
+        </nav>
+      </section>
+
+      <section class="coluna coluna-direita" aria-label="Resultados e conferência">
+        <article class="card ultimos-card">
+          <h2>Últimos 5 números sorteados</h2>
+          <div id="ultimosNumeros" class="chips-area">
+            <span class="vazio">Nenhum número sorteado ainda.</span>
+          </div>
+        </article>
+
+        <article class="card conferencia-card" aria-live="polite">
+          <h2>Conferência das cartelas</h2>
+
+          <div class="modo-linha">
+            <label for="modoSelect">Modo de vitória:</label>
+            <select id="modoSelect">
+              <option value="Quina" selected>Quina</option>
+              <option value="Cartela cheia">Cartela cheia</option>
+            </select>
+          </div>
+
+          <p id="ganhadoresTexto" class="ganhadores-texto">Nenhuma cartela ganhou ainda.</p>
+
+          <div class="faltantes-grid" aria-label="Resumo das cartelas próximas de ganhar">
+            <div class="faltante-box"><span id="faltam3">0</span><small>faltando 3</small></div>
+            <div class="faltante-box"><span id="faltam2">0</span><small>faltando 2</small></div>
+            <div class="faltante-box"><span id="faltam1">0</span><small>faltando 1</small></div>
+          </div>
+
+          <p id="faltantesTexto" class="faltantes-texto"></p>
+        </article>
+
+        <article class="card painel-card">
+          <div class="painel-cabecalho">
+            <h2>Painel completo</h2>
+            <small id="restantesTexto">Restantes: 75</small>
+          </div>
+          <div id="gradeNumeros" class="grade-numeros" aria-label="Painel completo dos números sorteados"></div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <div id="modalBingo" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitulo" hidden>
+    <div class="modal-card">
+      <button id="fecharModalBtn" class="modal-fechar" type="button" aria-label="Fechar aviso">×</button>
+      <h2 id="modalTitulo">BINGO!</h2>
+      <p id="modalTexto"></p>
+      <button id="okModalBtn" type="button" class="btn btn-verde">Entendi</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

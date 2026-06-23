@@ -1,0 +1,20 @@
+BINGO ELETRÔNICO - VERSÃO CORRIGIDA
+
+Como abrir corretamente:
+1. Clique com o botão direito no arquivo ZIP e escolha "Extrair tudo".
+2. Abra a pasta extraída.
+3. Clique duas vezes em index.html.
+
+Importante:
+- Não abra o index.html direto de dentro do ZIP.
+- O arquivo index.html precisa ficar na mesma pasta que styles.css e script.js.
+
+Arquivos:
+- index.html  -> página principal, na raiz do projeto.
+- styles.css  -> visual da página.
+- script.js   -> funcionamento do sorteio, conferência e globo animado.
+
+Correção desta versão:
+- Corrigido um erro no arquivo script.js que impedia o JavaScript de carregar.
+- Título alterado para Bingo Eletrônico.
+- Logo removida, deixando o espaço em branco.
